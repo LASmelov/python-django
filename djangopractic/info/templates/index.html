@@ -1,0 +1,269 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{%block head %}
+<style>
+    Вот пример CSS стиля для этого куска кода:
+
+    css
+    .discriptioninfo {
+      margin: 2rem auto;
+      max-width: 800px;
+    }
+    
+    .discriptioninfo h2 {
+      font-size: 2.5rem;
+      text-align: center;
+    }
+    
+    .cardperson1 {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    
+    .project-card {
+      display: flex;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cardperson {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8f8f8;
+      padding: 1rem;
+      width: 50%;
+    }
+    
+    .cardperson img {
+      margin-top: 1rem;
+    }
+    
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      padding: 1rem;
+      width: 50%;
+    }
+    
+    .card-list li {
+      margin-bottom: 1rem;
+    }
+    
+    .buttonall {
+      display: inline-block;
+      margin: 1rem 0.5rem;
+    }
+    
+    .buttonall a {
+      display: inline-block;
+      background-color: #2196f3;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    
+    .buttonall a:hover {
+      background-color: #0d8bf2;
+    }
+    
+    .addcardandsection {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    
+    .addcardandsection form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1rem;
+    }
+    
+    .addcardandsection label {
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+    }
+    
+    .addcardandsection select {
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 2px solid #ccc;
+      margin-right: 0.5rem;
+    }
+    
+    .addcardandsection button[type="submit"] {
+      background-color: #2196f3;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .addcardandsection button[type="submit"]:hover {
+      background-color: #0d8bf2;
+    }
+    
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+</style>
+{% endblock %}
+
+  
+<div>
+    <div class="infocompany">
+       
+        <div class="headline">
+            <span>
+                <div clas="headlinetext">
+                    <h2>О группе компаний DATUM</h2>
+                </div>
+                
+                <p>
+                    DATUM Group — современная компания, осуществляющая свою деятельность на территории России и стран ближнего зарубежья уже более 25 лет.
+                    Объединяя под брендом «DATUM» несколько бизнес-направлений, мы представляем собой холдинг со штатом более 500 специалистов различного профиля.
+                </p>
+
+                <div clas="headlinetext">
+                        <h2>Наша цель</h2>
+                    </div>
+
+                    <p>
+                    Продвижение на рынки современных технологий во всех сферах нашей деятельности.
+                    Мы стремимся максимально удовлетворить потребности наших клиентов, используя комплексный подход в решении проектных задач.
+                    Поэтому каждое из направлений группы компаний дополняет друг друга, создавая разносторонний мир профессионалов. Мы любим свое дело и с готовностью беремся за крупные и инновационные проекты, за новые для себя и рынка задачи.
+                </p>
+
+                <div clas="headlinetext">
+                    <h2>Направления</h2>
+                </div>
+                    <p>
+                    Основные направления деятельности группы компаний – создание отраслевых схем (водоснабжение и водоотведение, теплоснабжение, экология) и разработка программных комплексов и геоинформационных систем для государственных структур, инфраструктурных компаний и крупного бизнеса.
+                    Создание баз данных и картографического материала как основы для IT-решений также является флагманом в продуктовой линейке DATUM Group.
+                </p>
+
+                <div clas="headlinetext">
+                    <h2>История</h2>
+                </div>
+
+                    <p>
+                    Самое старшее предприятие холдинга основано в 1994 году.
+                    Профилем его деятельности вот уже 28 лет являются кадастровые, геодезические и землеустроительные работы, полный комплекс инженерных изысканий. Именно как результат ребрендинга компании-основательницы и возникла в 2000 году новая структура организации.
+                </p>
+
+                <div clas="headlinetext">
+                    <h2>Специалисты</h2>
+                </div>
+                    <p>
+                    Специалисты DATUM Group за время существования компании успели реализовать проекты практически на всей территории нашей Родины – от Камчатки и Сибири до центральных регионов, Санкт-Петербурга и Москвы. Результат этой работы – уникальный опыт в каждой из экспертных областей, готовность браться за непростые задачи и приобретение надежных партнеров и лояльных клиентов по всей стране и за ее пределами.
+                    <p>
+
+                        <div clas="headlinetext">
+                            <h2>Взаимодействие с ВУЗами</h2>
+                        </div>
+
+                    На постоянной основе ведется взаимодействие группы компаний с профильными ВУЗами.
+                     Будучи в курсе передовых веяний в науке и рекрутируя молодых и талантливых специалистов, DATUM Group обеспечивает рынок каждого из направлений своей деятельности наиболее адекватными решениями.
+                </p></span>
+            </div>
+        </div>
+        <div class="discriptioninfo">
+            <br><br>
+            <span><h2>Проекты</h2></span>
+            <ul>
+                {% for project in projects %}
+                <section class="cardperson1">
+                    <div class="project-card">
+                        <div class="cardperson">
+                            <li>{{project.name}}</li>
+                            <img style="width: 200px;" src="/media/{{project.image_file}}" alt="">
+                        </div>
+                        <div class="card-list">
+                            {% for card in project.card_set.all %}
+                                <li>{{card.name}}</li>
+                                <img style="width: 200px;" src="/media/{{card.image_file}}" alt="">
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+                {% endfor %}
+            </ul>
+            <div class ="buttonall">
+                <a href="{% url 'projects' %}">Посмотреть все проекты</a>
+            </div>
+        </div>
+
+    <br> <br>
+    
+    <div class="addcardandsection">
+        <div class="buttonall">
+        <a href="{% url 'add-section' %}">Добавить раздел</a>
+    </div>
+    <div class="buttonall">
+        <a href="{% url 'add-card' %}">Добавить карточку</a>
+    </div>
+
+
+    <form method="GET">
+        <label for="section">Сортировать по разделу: </label>
+        <select id="section" name="section">
+          <option value="">Все</option>
+          {% for section in sections %}
+          <option value="{{ section.id }}">{{ section.name }}</option>
+        {% endfor %}
+        </select>
+        <button type="submit">Сортировать</button>
+      </form>
+      
+      <div class="cards">
+        {% for card in cards %}
+          <!-- здесь выводится каждая карточка -->
+        {% endfor %}
+      </div>
+</div>
+</div>
+{% comment %}
+<div class="info">
+     
+    <h2>{{develop.name}}</h2>
+    <p>{{develop.genre}}</p>
+    <p>{{develop.author}}</p>
+    <p>{{develop.amount}}</p>
+   
+</div>
+ {% endcomment %}
+
+<script>
+    function showForm() {
+        var form = document.getElementById("editForm");
+        form.style.display = "block";
+    }
+</script>
+
+
+
+{% endblock content %}

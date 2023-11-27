@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+
+<div>
+{% for project in projects %}
+
+<div class="hop">
+    <div class="none">
+        <p>{{project.name}}</p>
+    </div>
+
+    <div class="neno">
+        <img style="width: 200px;" src="/media/{{project.image_file}}" alt="">
+        <p>{{project.description}}</p>
+
+    </div>
+</div>
+
+{% endfor %}
+</div>
+{% endblock content %}
+
+
+

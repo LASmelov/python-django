@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header>
+        
+
+        
+        <div class="buttonheaderlayout">
+                <div class="logo">
+                    <a href="{% url 'index' %}">
+                    <img style="width: 200px;" src="{% static 'assets/img/logo.png' %}" alt="Логотип компании">
+                    </a>
+                </div>
+
+
+
+                
+
+
+
+            <div class="buttonheaderurl">
+                {% comment %} <a href=" {% url 'catalog_develop' %}">Разработчики </a>
+                <a href="{% url 'manager' %}">Менеджер</a>
+                <a href="{% url 'catalog_view' %}">Каталог разработчиков</a> {% endcomment %}
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Меню</button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="{% url 'catalog_develop' %}">Разработчики</a>
+                      <a class="dropdown-item" href="{% url 'manager' %}">Задания для Менеджеров</a>
+                      <a class="dropdown-item" href="{% url 'catalog_view' %}">Задания для Разработчиков</a>
+                      <a class="dropdown-item" href="{% url 'add-card' %}">Добавить карточку</a>
+                      <a class="dropdown-item" href="{% url 'add-section' %}">Добавить раздел</a>
+                      <a class="dropdown-item" href="{% url 'projects_info'%}">Проекты</a>
+                    </div>
+                  </div>
+                    <div class="buttonheaderlayoutlog">
+
+
+
+                        {% comment %} <a href="{% url 'login'%}">Log in</a>
+                        <a href="{% url 'logout'%}">Log out</a> {% endcomment %}
+                      
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}">Выйти</a>
+                        {% endif %}
+                        {% if not user.is_authenticated %}
+                        <a href="{% url 'login' %}">Войти</a>
+                        {% endif %}
+
+                    </div>
+                
+            </div>
+        </div>
+    </header>
+    <main>
+
+        
+
+        
+
+        {% block content %}  {% endblock content %}
+    </main>
+    <footer>
+        <div class="footerall">
+
+            <img style="width: 100px;" src="{% static 'assets/img/logo.png' %}" alt="Логотип компании">
+                <div class="footer1">
+                    <p>© DATUM Group,
+                        2012- 2023<br>
+                        All Rights Reserved</p>
+                    </div>
+                </div>
+            </style>
+        </div>
+    </footer>
+</body>
+
+</html>

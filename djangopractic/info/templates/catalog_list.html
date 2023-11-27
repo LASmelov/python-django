@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+    
+    <section class="">
+                
+        <section class="cardsandimg">
+                <h2>Карточки с информацией</h2>
+                {% for card in cards %}
+                <div class ="cards">
+                    <p>{{card.name}}</p>
+                    <img style="width: 200px;" img src="/media/{{card.image_file}}" alt="">
+                </div>
+                {% endfor %}
+        </section>
+        <section>
+        <div class="map">
+                    <script type="text/javascript" src="https://api-maps.yandex.ru/2.1/?load=package.full&lang=ru-RU"></script>
+                    <div class="container">
+                        <div class="objects">
+                            <ul>
+                                <li><a data-filter="0">Главный офис</a></li>
+                                <li><a  data-filter="1">Конгресс-холл ДГТУ</a></li>
+                                <li><a  data-filter="2">Coffee 1</a></li>
+                                <li><a  data-filter="3">Coffee 2</a></li>
+                            </ul>
+                        </div>
+                        <div class="map-container">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                
+                    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        </div>
+        
+            <script>
+                        ymaps.ready(init);
+
+                        function init() {
+                            var myMap = new ymaps.Map('map', {
+                                center: [47.246748, 39.727044],
+                                zoom: 12
+                            }, {
+                                searchControlProvider: 'yandex#search'
+                            });
+                            $.getJSON("{%  static 'geo.json' %}", function( data ){
+                                objectManager = new ymaps.ObjectManager({
+                                    clusterize: true,
+                                    gridSize: 50,
+                                    clusterDisableClickZoom: false
+                                });
+                                objectManager.clusters.options.set('preset', 'islands#invertedNightClusterIcons');
+                                myMap.geoObjects.add(objectManager);
+                                objectManager.add(data);
+                            });
+                            $('.objects ul li a').click(function () {
+                                objectManager.setFilter('properties.filter == "' + $(this).attr('data-filter') + '"');
+                                $('.objects ul li a').removeClass('active');
+                                $(this).toggleClass('active');
+                            });
+                        }
+            </script>
+        </section>
+        </main>
+       
+     
+    </section>  
+{% endblock %}
